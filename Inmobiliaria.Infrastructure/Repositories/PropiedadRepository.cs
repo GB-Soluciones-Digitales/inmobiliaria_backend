@@ -31,6 +31,7 @@ namespace Inmobiliaria.Infrastructure.Repositories
         public async Task<IEnumerable<Propiedad>> GetActivasAsync()
         {
             return await _context.Propiedades
+                                 .Include(p => p.Imagenes)
                                  .Where(p => p.Activa == true)
                                  .OrderByDescending(p => p.FechaCreacion)
                                  .ToListAsync();
