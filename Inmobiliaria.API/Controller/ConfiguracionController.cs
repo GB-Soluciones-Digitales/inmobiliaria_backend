@@ -43,6 +43,10 @@ namespace Inmobiliaria.API.Controllers
             config.HeroSubtitulo = dto.HeroSubtitulo;
             config.HeroImagenUrl = dto.HeroImagenUrl;
 
+            config.HeroTitulo2 = dto.HeroTitulo2;
+            config.HeroSubtitulo2 = dto.HeroSubtitulo2;
+            config.HeroImagenUrl2 = dto.HeroImagenUrl2;
+
             await _context.SaveChangesAsync();
             return Ok(config);
         }
