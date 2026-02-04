@@ -20,22 +20,30 @@ namespace Inmobiliaria.Infrastructure.Services
             _cloudinary = new Cloudinary(account);
         }
 
-        public async Task<string> SubirFotoAsync(IFormFile archivo)
+        public async Task<string> SubirFotoAsync(IFormFile archivo, bool esHero = false)
         {
-            if (archivo.Length == 0) return null;
+            if (archivo.Length == 0) return string.Empty;
 
             using var stream = archivo.OpenReadStream();
 
             var uploadParams = new ImageUploadParams
             {
                 File = new FileDescription(archivo.FileName, stream),
-                
-                Transformation = new Transformation().Height(500).Width(800).Crop("fill").Gravity("auto"),
-                Folder = "inmobiliaria_casas"
+                Folder = esHero ? "inmobiliaria_hero" : "inmobiliaria_casas"
             };
 
-            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+            if (esHero)
+            {
+                uploadParams.Transformation = new Transformation()
+                    .Width(1920).Height(1080).Crop("fill").Gravity("auto").Quality("auto").FetchFormat("webp");
+            }
+            else
+            {
+                uploadParams.Transformation = new Transformation()
+                    .Width(800).Height(500).Crop("fill").Gravity("auto").Quality("80");
+            }
 
+            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
             return uploadResult.SecureUrl.ToString();
         }
 

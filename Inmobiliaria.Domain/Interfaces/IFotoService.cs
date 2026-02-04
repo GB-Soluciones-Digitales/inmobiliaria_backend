@@ -4,7 +4,7 @@ namespace Inmobiliaria.Domain.Interfaces
 {
     public interface IFotoService
     {
-        Task<string> SubirFotoAsync(IFormFile archivo);
+        Task<string> SubirFotoAsync(IFormFile archivo, bool esHero = false);
         Task BorrarFotoAsync(string publicId); 
     }
 }
