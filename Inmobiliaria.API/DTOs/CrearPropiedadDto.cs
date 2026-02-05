@@ -23,8 +23,6 @@ namespace Inmobiliaria.API.DTOs
         public string EstadoOperacion { get; set; } = "Venta";
         public bool Activa { get; set; } = true;
         public bool EsDestacada { get; set; } = false;
-
-        // Nuevos Enums
         public EstadoInmueble Estado { get; set; }
         public Orientacion Orientacion { get; set; }
         public Disposicion Disposicion { get; set; }
@@ -41,6 +39,8 @@ namespace Inmobiliaria.API.DTOs
         public bool TieneAscensor { get; set; }
         public bool TieneTelefono { get; set; }
         public bool TieneSeguridad { get; set; }
+        public bool TieneImpMunicipales { get; set; }
+        public bool TieneImpProvinciales { get; set; }
 
         // Comodidades / Ambientes
         public bool TienePatio { get; set; }
@@ -52,5 +52,11 @@ namespace Inmobiliaria.API.DTOs
         public bool TieneLivingComedor { get; set; }
         public bool TieneLavadero { get; set; }
         public bool TieneLavaderoSectorizado { get; set; }
+        public bool TieneTerraza { get; set; }
+        public bool TieneComedor { get; set; }
+        public bool TieneFondo { get; set; }
+        public bool TienePiscina { get; set; }
+        public bool TieneToilette { get; set; }
+        public bool TieneQuincho { get; set; }
     }
 }

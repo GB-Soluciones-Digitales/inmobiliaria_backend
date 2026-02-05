@@ -1,6 +1,6 @@
 ﻿namespace Inmobiliaria.Domain.Entities
 {
-    public enum TipoPropiedad { Casa, Departamento, Terreno, Local, Oficina }
+    public enum TipoPropiedad { Casa, Departamento, Ph, Terreno, Local, Oficina, Galpón, Campo }
     public enum EstadoInmueble { Excelente, MuyBueno, Bueno, Regular, ARefaccionar }
     public enum Orientacion { Norte, Sur, Este, Oeste, Noreste, Noroeste, Sudeste, Sudoeste }
     public enum Disposicion { Frente, Contrafrente, Lateral, Interno }
@@ -52,7 +52,9 @@
         public bool TieneCalefon { get; set; } 
         public bool TieneAscensor { get; set; } 
         public bool TieneTelefono { get; set; } 
-        public bool TieneSeguridad { get; set; } 
+        public bool TieneSeguridad { get; set; }
+        public bool TieneImpMunicipales { get; set; }
+        public bool TieneImpProvinciales { get; set; }
 
         // --- COMODIDADES / AMBIENTES ---
         public bool TienePatio { get; set; }
@@ -64,5 +66,11 @@
         public bool TieneLivingComedor { get; set; }
         public bool TieneLavadero { get; set; }
         public bool TieneLavaderoSectorizado { get; set; }
+        public bool TieneTerraza { get; set; }
+        public bool TieneComedor { get; set; }
+        public bool TieneFondo { get; set; }
+        public bool TienePiscina { get; set; }
+        public bool TieneToilette { get; set; }
+        public bool TieneQuincho { get; set; }
     }
 }

@@ -85,6 +85,8 @@ namespace Inmobiliaria.API.Controller
                 TieneAscensor = dto.TieneAscensor,
                 TieneTelefono = dto.TieneTelefono,
                 TieneSeguridad = dto.TieneSeguridad,
+                TieneImpMunicipales = dto.TieneImpMunicipales,
+                TieneImpProvinciales = dto.TieneImpProvinciales,
 
                 // Comodidades
                 TienePatio = dto.TienePatio,
@@ -95,7 +97,13 @@ namespace Inmobiliaria.API.Controller
                 TieneLiving = dto.TieneLiving,
                 TieneLivingComedor = dto.TieneLivingComedor,
                 TieneLavadero = dto.TieneLavadero,
-                TieneLavaderoSectorizado = dto.TieneLavaderoSectorizado
+                TieneLavaderoSectorizado = dto.TieneLavaderoSectorizado,
+                TieneTerraza = dto.TieneTerraza,
+                TieneComedor = dto.TieneComedor,
+                TieneFondo = dto.TieneFondo,
+                TienePiscina = dto.TienePiscina,
+                TieneToilette = dto.TieneToilette,
+                TieneQuincho = dto.TieneQuincho,
             };
 
             await _repository.AddAsync(nuevaPropiedad);
@@ -169,6 +177,8 @@ namespace Inmobiliaria.API.Controller
             propiedad.TieneAscensor = dto.TieneAscensor;
             propiedad.TieneTelefono = dto.TieneTelefono;
             propiedad.TieneSeguridad = dto.TieneSeguridad;
+            propiedad.TieneImpMunicipales = dto.TieneImpMunicipales;
+            propiedad.TieneImpProvinciales = dto.TieneImpProvinciales;
 
             // Comodidades
             propiedad.TienePatio = dto.TienePatio;
@@ -180,6 +190,12 @@ namespace Inmobiliaria.API.Controller
             propiedad.TieneLivingComedor = dto.TieneLivingComedor;
             propiedad.TieneLavadero = dto.TieneLavadero;
             propiedad.TieneLavaderoSectorizado = dto.TieneLavaderoSectorizado;
+            propiedad.TieneTerraza = dto.TieneTerraza;
+            propiedad.TieneComedor = dto.TieneComedor;
+            propiedad.TieneFondo = dto.TieneFondo;
+            propiedad.TienePiscina = dto.TienePiscina;
+            propiedad.TieneToilette = dto.TieneToilette;
+            propiedad.TieneQuincho = dto.TieneQuincho;
 
             await _repository.UpdateAsync(propiedad);
             return NoContent();
