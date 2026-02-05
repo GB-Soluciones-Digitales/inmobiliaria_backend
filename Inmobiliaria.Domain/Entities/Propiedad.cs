@@ -43,5 +43,12 @@
         public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
 
         public List<ImagenPropiedad> Imagenes { get; set; } = new List<ImagenPropiedad>();
+
+        public bool TieneAgua { get; set; }
+        public bool TieneGas { get; set; }
+        public bool TieneLuz { get; set; }
+        public bool TieneInternet { get; set; }
+        public bool TienePavimento { get; set; }
+        public bool TieneCloacas { get; set; }
     }
 }
