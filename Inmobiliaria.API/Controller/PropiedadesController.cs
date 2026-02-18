@@ -3,7 +3,7 @@ using Inmobiliaria.Domain.Entities;
 using Inmobiliaria.Domain.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace Inmobiliaria.API.Controller
 {
