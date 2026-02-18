@@ -17,21 +17,21 @@ namespace Inmobiliaria.Infrastructure.Repositories
         public async Task<List<Propiedad>> GetAllAsync()
         {
             return await _context.Propiedades
-                                 .Include(p => p.Imagenes)
+                                 .Include(p => p.Imagenes.OrderBy(i => i.Orden))
                                  .ToListAsync();
         }
 
         public async Task<Propiedad?> GetByIdAsync(int id)
         {
             return await _context.Propiedades
-                                 .Include(p => p.Imagenes)
+                                 .Include(p => p.Imagenes.OrderBy(i => i.Orden))
                                  .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IEnumerable<Propiedad>> GetActivasAsync()
         {
             return await _context.Propiedades
-                                 .Include(p => p.Imagenes)
+                                 .Include(p => p.Imagenes.OrderBy(i => i.Orden))
                                  .Where(p => p.Activa == true)
                                  .OrderByDescending(p => p.FechaCreacion)
                                  .ToListAsync();
@@ -46,7 +46,7 @@ namespace Inmobiliaria.Infrastructure.Repositories
 
         public async Task UpdateAsync(Propiedad propiedad)
         {
-            _context.Entry(propiedad).State = EntityState.Modified;
+            _context.Propiedades.Update(propiedad);
             await _context.SaveChangesAsync();
         }
 

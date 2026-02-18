@@ -122,11 +122,13 @@ namespace Inmobiliaria.API.Controller
             if (string.IsNullOrEmpty(urlImagen))
                 return BadRequest("Error al subir la imagen");
 
+            int siguienteOrden = propiedad.Imagenes.Any() ? propiedad.Imagenes.Max(i => i.Orden) + 1 : 0;
+
             var nuevaImagen = new ImagenPropiedad
             {
                 PropiedadId = id,
                 Url = urlImagen,
-                Orden = 0
+                Orden = siguienteOrden
             };
 
             await _repository.AddImagenAsync(nuevaImagen);
@@ -217,6 +219,26 @@ namespace Inmobiliaria.API.Controller
         public async Task<IActionResult> DeleteImagen(int id, int imagenId)
         {
             await _repository.DeleteImagenAsync(imagenId);
+            return NoContent();
+        }
+
+        [HttpPut("{id}/imagenes/orden")]
+        [Authorize]
+        public async Task<IActionResult> ReordenarImagenes(int id, [FromBody] List<int> imagenIds)
+        {
+            var propiedad = await _repository.GetByIdAsync(id);
+            if (propiedad == null) return NotFound();
+
+            foreach (var img in propiedad.Imagenes)
+            {
+                int nuevoOrden = imagenIds.IndexOf(img.Id);
+                if (nuevoOrden != -1)
+                {
+                    img.Orden = nuevoOrden;
+                }
+            }
+
+            await _repository.UpdateAsync(propiedad);
             return NoContent();
         }
     }

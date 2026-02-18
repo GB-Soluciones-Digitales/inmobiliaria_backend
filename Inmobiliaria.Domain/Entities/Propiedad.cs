@@ -1,6 +1,6 @@
 ﻿namespace Inmobiliaria.Domain.Entities
 {
-    public enum TipoPropiedad { Casa, Departamento, Ph, Terreno, Local, Oficina, Galpón, Campo }
+    public enum TipoPropiedad { Casa, Departamento, Ph, Terreno, Local, Oficina, Galpón, Campo, Quinta }
     public enum EstadoInmueble { Excelente, MuyBueno, Bueno, Regular, ARefaccionar }
     public enum Orientacion { Norte, Sur, Este, Oeste, Noreste, Noroeste, Sudeste, Sudoeste }
     public enum Disposicion { Frente, Contrafrente, Lateral, Interno }
