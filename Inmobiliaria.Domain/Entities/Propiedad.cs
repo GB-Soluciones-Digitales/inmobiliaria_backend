@@ -30,9 +30,9 @@
         public double SuperficieCubierta { get; set; }
 
         public TipoPropiedad Tipo { get; set; }
-        public EstadoInmueble Estado { get; set; } = EstadoInmueble.Excelente;
-        public Orientacion Orientacion { get; set; } = Orientacion.Norte;
-        public Disposicion Disposicion { get; set; } = Disposicion.Frente;
+        public EstadoInmueble? Estado { get; set; } = null;
+        public Orientacion? Orientacion { get; set; } = null;
+        public Disposicion? Disposicion { get; set; } = null;
 
         public bool Activa { get; set; } = true;
         public bool EsDestacada { get; set; } = false;
