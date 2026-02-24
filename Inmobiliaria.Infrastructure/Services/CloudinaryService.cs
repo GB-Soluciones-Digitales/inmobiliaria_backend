@@ -40,7 +40,7 @@ namespace Inmobiliaria.Infrastructure.Services
             else
             {
                 uploadParams.Transformation = new Transformation()
-                    .Width(800).Height(500).Crop("fill").Gravity("auto").Quality("80");
+                    .Width(1200).Crop("limit").Quality("auto").FetchFormat("auto");
             }
 
             var uploadResult = await _cloudinary.UploadAsync(uploadParams);
